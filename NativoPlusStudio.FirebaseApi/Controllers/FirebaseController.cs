@@ -41,15 +41,15 @@ namespace NativoPlusStudio.FirebaseApi.Controllers
         public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request) => await _mediator.Send(request);
 
         /// <summary>
-        /// Search User Info by specific field FirtName, or LastName or Email
+        /// Get User Info by specific field FirtName, or LastName or Email
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(200)]
         [ProducesResponseType(500)]
-        [Route("SearchInFirebaseUsersCollection")]
-        public async Task<IActionResult> SearchUsers([FromBody] SearchUsersCollectionRequest request) => await _mediator.Send(request);
+        [Route("GetFirebaseUsersCollection")]
+        public async Task<IActionResult> GetUserInfo([FromBody] SearchUsersCollectionRequest request) => await _mediator.Send(request);
     }
 }
 
