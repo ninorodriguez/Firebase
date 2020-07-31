@@ -41,7 +41,7 @@ namespace NativoPlusStudio.FirebaseApi.Controllers
         public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request) => await _mediator.Send(request);
 
         /// <summary>
-        /// Create Users on Firebase Database
+        /// Search User Info by specific field FirtName, or LastName or Email
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>

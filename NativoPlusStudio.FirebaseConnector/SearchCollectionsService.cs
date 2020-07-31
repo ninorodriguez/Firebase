@@ -1,13 +1,9 @@
 ﻿using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
 using Google.Cloud.Firestore;
-using Google.Protobuf.WellKnownTypes;
 using Microsoft.Extensions.Options;
-using Microsoft.Win32.SafeHandles;
 using NativoPlusStudio.DataTransferObjects.Configurations;
-using NativoPlusStudio.DataTransferObjects.FirebaseCreateUser;
 using NativoPlusStudio.DataTransferObjects.FirebaseSearchCollection;
-using NativoPlusStudio.Interfaces.FirebaseCreateUser;
 using NativoPlusStudio.Interfaces.FirebaseSearchCollection;
 using Newtonsoft.Json;
 using Serilog;

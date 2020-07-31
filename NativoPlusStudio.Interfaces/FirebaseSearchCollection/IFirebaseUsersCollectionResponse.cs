@@ -1,5 +1,4 @@
 ﻿using Google.Cloud.Firestore;
-using System;
 
 namespace NativoPlusStudio.Interfaces.FirebaseSearchCollection
 {

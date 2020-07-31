@@ -1,8 +1,5 @@
 ﻿using NativoPlusStudio.Interfaces.FirebaseSearchCollection;
 using NativoPlusStudio.RequestResponsePattern;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NativoPlusStudio.DataTransferObjects.FirebaseSearchCollection
 {

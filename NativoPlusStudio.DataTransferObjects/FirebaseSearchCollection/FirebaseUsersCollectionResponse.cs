@@ -1,6 +1,5 @@
 ﻿using Google.Cloud.Firestore;
 using NativoPlusStudio.Interfaces.FirebaseSearchCollection;
-using System;
 
 namespace NativoPlusStudio.DataTransferObjects.FirebaseSearchCollection
 {

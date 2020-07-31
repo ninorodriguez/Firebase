@@ -1,5 +1,4 @@
-﻿using NativoPlusStudio.Interfaces.FirebaseCreateUser;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace NativoPlusStudio.Interfaces.FirebaseSearchCollection
