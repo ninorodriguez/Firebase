@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="9.0.0" />
+		<PackageReference Include="NativoPlusStudio.RequestResponsePattern" Version="1.10.1" />
+		<PackageReference Include="Serilog.Enrichers.Environment" Version="2.1.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\NativoPlusStudio.DataTransferObjects\NativoPlusStudio.DataTransferObjects.csproj" />
+	</ItemGroup>
+
+</Project>

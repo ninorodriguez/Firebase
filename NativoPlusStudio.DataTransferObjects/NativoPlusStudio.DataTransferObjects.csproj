@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+	<UserSecretsId>1014a6de-c023-4cf1-bcff-8bf9f1634643</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="Google.Cloud.Firestore" Version="1.0.0-beta14" />
+	<PackageReference Include="NativoPlusStudio.RequestResponsePattern" Version="1.10.1" />
+	<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NativoPlusStudio.Enums\NativoPlusStudio.Enums.csproj" />
+    <ProjectReference Include="..\NativoPlusStudio.Interfaces\NativoPlusStudio.Interfaces.csproj" />
+  </ItemGroup>
+
+  
+
+</Project>
