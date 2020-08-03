@@ -21,7 +21,7 @@ namespace NativoPlusStudio.FirebaseUnitTest.Services
         IServiceProvider serviceProvider;
         private readonly IUploadFileService _uploadFileService;
         private readonly ICreateUsersService _createUser;
-        private readonly ISearchCollectionsService _search;
+        private readonly IGetUsersCollectionService _search;
 
         public ServicesTests()
         {
@@ -35,7 +35,7 @@ namespace NativoPlusStudio.FirebaseUnitTest.Services
             serviceProvider = collection.BuildServiceProvider();
             _uploadFileService = serviceProvider.GetRequiredService<IUploadFileService>();
             _createUser = serviceProvider.GetRequiredService<ICreateUsersService>();
-            _search = serviceProvider.GetRequiredService<ISearchCollectionsService>();
+            _search = serviceProvider.GetRequiredService<IGetUsersCollectionService>();
         }
 
         [TestMethod]
@@ -66,25 +66,25 @@ namespace NativoPlusStudio.FirebaseUnitTest.Services
         {
             var model = new CreateUserRequest()
             {
-                FullName = "Ana Rodriguez",
-                FirstName = "Ana",
-                LastName = "Rodriguez",
-                Email = "nsrd793@gmail.com",
-                Password = "password",
-                Provider = "email",
-                IsSubcribed = true,
-                WeeksOfPregnancy = 1,
-                HasEnabledNotifications = "",
-                JourneyName = "",
-                AppLanguage = "",
-                StartingWeek = "",
-                CreatedDate = DateTime.UtcNow,
-                PregnancyDateModified = DateTime.UtcNow,
-                IsExternalSubscriber = true,
-                IsTrialSubscriber = true,
-                IsTrialSubExpirationDate = DateTime.UtcNow.AddDays(7),
-                IsExternalUser = true,
-                IsOnboarded = true
+                fullName = "Ana Rodriguez",
+                firstName = "Ana",
+                lastName = "Rodriguez",
+                email = "nsrd793@gmail.com",
+                password = "password",
+                provider = "email",
+                isSubcribed = true,
+                weeksOfPregnancy = 1,
+                hasEnabledNotifications = "",
+                journeyName = "",
+                appLanguage = "",
+                startingWeek = "",
+                createdDate = DateTime.UtcNow,
+                pregnancyDateModified = DateTime.UtcNow,
+                isExternalSubscriber = true,
+                isTrialSubscriber = true,
+                isTrialSubExpirationDate = DateTime.UtcNow.AddDays(7),
+                isExternalUser = true,
+                isOnboarded = true
             };
 
             var result = _createUser.AddUsers(model);
@@ -95,7 +95,7 @@ namespace NativoPlusStudio.FirebaseUnitTest.Services
         [TestMethod]
         public void Search()
         {
-            var model = new SearchUsersCollectionRequest()
+            var model = new GetUsersCollectionRequest()
             {
                 FirstName = "Ninoshka"
             };

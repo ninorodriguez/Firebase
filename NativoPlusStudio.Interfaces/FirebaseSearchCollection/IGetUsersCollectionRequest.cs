@@ -1,6 +1,6 @@
 ﻿namespace NativoPlusStudio.Interfaces.FirebaseSearchCollection
 {
-    public interface ISearchUsersCollectionRequest
+    public interface IGetUsersCollectionRequest
     {
         string Email { get; set; }
         string FirstName { get; set; }

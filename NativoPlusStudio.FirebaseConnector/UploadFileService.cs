@@ -23,7 +23,6 @@ namespace NativoPlusStudio.FirebaseConnector
         {
             _logger = logger;
             _config = firebaseOptions.Value;
-
         }
 
         public async Task<string> EmailandPasswordToken()

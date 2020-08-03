@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace NativoPlusStudio.Interfaces.FirebaseSearchCollection
 {
-    public interface ISearchCollectionsService
+    public interface IGetUsersCollectionService
     {        
-        Task<List<IFirebaseUsersCollectionResponse>> GetUsersInfo(ISearchUsersCollectionRequest model);
+        Task<List<IGetUsersCollectionResponse>> GetUsersInfo(IGetUsersCollectionRequest model);
     }
 }

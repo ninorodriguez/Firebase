@@ -1,4 +1,6 @@
-﻿using NativoPlusStudio.DataTransferObjects.FirebaseCreateUser;
+﻿using FluentValidation.Results;
+using NativoPlusStudio.DataTransferObjects.FirebaseCreateUser;
+using NativoPlusStudio.FluentValidation;
 using NativoPlusStudio.Interfaces.FirebaseCreateUser;
 using NativoPlusStudio.RequestResponsePattern;
 using Serilog;
@@ -26,6 +28,7 @@ namespace NativoPlusStudio.WebRequestHandlers
         {
             _logger.Information(nameof(HandleAsync));
 
+            var transactionId = input.TransactionId.IsNullOrEmptyOrWhiteSpace() ? Guid.NewGuid().ToString() : input.TransactionId;
             if (input == null)
             {
                 _logger.Error($"#Create Firebase User request is null");
@@ -33,26 +36,40 @@ namespace NativoPlusStudio.WebRequestHandlers
                 return error;
             }
 
-            var response = await _createUser.AddUsers(input);
-            var transactionId = input.TransactionId.IsNullOrEmptyOrWhiteSpace() ? Guid.NewGuid().ToString() : input.TransactionId;
-            if (response.DbId == null)
-            {
-                var errors = new List<Error>();
-                errors.Add(new Error
-                {
-                    Message = "An error occurred while processing your request",
-                    Code = ((int)HttpStatusCode.InternalServerError).ToString()
-                });
-                return BadRequest(new HttpStandardResponse<CreateUserResponse>
-                {
-                    Response = null,
-                    Error = errors,
-                    Status = false,
-                    TransactionId = transactionId
-                }, transactionId);
-            }
-            return Ok(response: (CreateUserResponse)response, input.TransactionId.IsNullOrEmptyOrWhiteSpace() ? Guid.NewGuid().ToString() : input.TransactionId);
+            var validation = Validate(input);
 
+            if(validation.IsValid)
+            {
+                var response = await _createUser.AddUsers(input);
+
+                if (response.DbId == null)
+                {
+                    var errors = new List<Error>();
+                    errors.Add(new Error
+                    {
+                        Message = "An error occurred while processing your request",
+                        Code = ((int)HttpStatusCode.InternalServerError).ToString()
+                    });
+                    return BadRequest(new HttpStandardResponse<CreateUserResponse>
+                    {
+                        Response = null,
+                        Error = errors,
+                        Status = false,
+                        TransactionId = transactionId
+                    }, transactionId);
+                }
+                return Ok(response: (CreateUserResponse)response, input.TransactionId.IsNullOrEmptyOrWhiteSpace() ? Guid.NewGuid().ToString() : input.TransactionId);
+            }
+            return BadRequest<CreateUserRequest>(validation, transactionId);
+        }
+
+        private ValidationResult Validate(CreateUserRequest command)
+        {
+            _logger.Information("#Validate");
+
+            var validator = new CreateUserValidator();
+            ValidationResult result = validator.Validate(command);
+            return result;
         }
 
     }

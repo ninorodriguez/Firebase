@@ -3,10 +3,9 @@ using NativoPlusStudio.Interfaces.FirebaseSearchCollection;
 
 namespace NativoPlusStudio.DataTransferObjects.FirebaseSearchCollection
 {
-    public class FirebaseUsersCollectionResponse : IFirebaseUsersCollectionResponse
+    public class GetUsersCollectionResponse : IGetUsersCollectionResponse
     {
-        public string UserId { get; set; }
-        public string FullName { get; set; }
+        public string UserId { get; set; }        
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -18,8 +17,8 @@ namespace NativoPlusStudio.DataTransferObjects.FirebaseSearchCollection
         public string JourneyName { get; set; }
         public string AppLanguage { get; set; }
         public string StartingWeek { get; set; }
-        public Timestamp CreatedDate { get; set; } 
-        public Timestamp PregnancyDateModified { get; set; }
+        public Timestamp CreatedDate { get; set; }
+        public Timestamp PregnancyDateModified { get; set; }  
         public bool IsExternalSubscriber { get; set; }
         public bool IsTrialSubscriber { get; set; }
         public Timestamp IsTrialSubExpirationDate { get; set; }

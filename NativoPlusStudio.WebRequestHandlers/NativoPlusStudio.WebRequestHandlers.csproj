@@ -12,6 +12,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\NativoPlusStudio.DataTransferObjects\NativoPlusStudio.DataTransferObjects.csproj" />
+	  <ProjectReference Include="..\NativoPlusStudio.FluentValidation\NativoPlusStudio.FluentValidation.csproj" />
 	</ItemGroup>
 
 </Project>

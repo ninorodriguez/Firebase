@@ -2,13 +2,12 @@
 
 namespace NativoPlusStudio.Interfaces.FirebaseSearchCollection
 {
-    public interface IFirebaseUsersCollectionResponse
+    public interface IGetUsersCollectionResponse
     {
         string AppLanguage { get; set; }
         Timestamp CreatedDate { get; set; }
         string Email { get; set; }
-        string FirstName { get; set; }
-        string FullName { get; set; }
+        string FirstName { get; set; }        
         string HasEnabledNotifications { get; set; }
         bool IsExternalSubscriber { get; set; }
         bool IsExternalUser { get; set; }

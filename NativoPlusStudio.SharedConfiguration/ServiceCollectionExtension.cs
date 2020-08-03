@@ -40,7 +40,7 @@ namespace NativoPlusStudio.SharedConfiguration
             services.AddScoped<ICreateUsersService, CreateUsersService>();
             services.AddScoped<IFirebaseClient, FirebaseClient>();
             services.AddScoped<IFirebaseConfig, FirebaseConfig>();            
-            services.AddScoped<ISearchCollectionsService, SearchCollectionsService>();            
+            services.AddScoped<IGetUsersCollectionService, GetUsersCollectionService>();            
 
             services.AddMvc()
                .AddNewtonsoftJson(options =>
@@ -62,6 +62,7 @@ namespace NativoPlusStudio.SharedConfiguration
             config = new ConfigurationBuilder()
                 .AddEnvironmentVariables()  
                 .AddUserSecrets<FirebaseOptions>()
+                .AddAzureAppConfiguration(config["AzureAppConfiguration:ConnectionString"])
                 .SetBasePath(Directory.GetCurrentDirectory())                
                 .AddJsonFile($"{AppContext.BaseDirectory}/appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"{AppContext.BaseDirectory }/appsettings.Production.json",                

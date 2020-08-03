@@ -10,18 +10,18 @@ using System.Threading.Tasks;
 
 namespace NativoPlusStudio.WebRequestHandlers
 {
-    public class SearchUsersCollectionHandler : HttpHandler<SearchUsersCollectionRequest>
+    public class SearchUsersCollectionHandler : HttpHandler<GetUsersCollectionRequest>
     {
-        private readonly ISearchCollectionsService _searchUser;
+        private readonly IGetUsersCollectionService _searchUser;
 
-        public SearchUsersCollectionHandler(ISearchCollectionsService searchUser, ILogger logger)
+        public SearchUsersCollectionHandler(IGetUsersCollectionService searchUser, ILogger logger)
          : base(logger)
         {
             _searchUser = searchUser;
         }
 
         protected override async Task<HttpResponse> HandleAsync(
-           SearchUsersCollectionRequest input,
+           GetUsersCollectionRequest input,
            CancellationToken cancellationToken = default)
         {
             _logger.Information(nameof(HandleAsync));
@@ -29,7 +29,7 @@ namespace NativoPlusStudio.WebRequestHandlers
             if (input == null)
             {
                 _logger.Error($"#Search User request is null");
-                var error = NullBadRequest<SearchUsersCollectionRequest>(transactionId: input.TransactionId.IsNullOrEmptyOrWhiteSpace() ? Guid.NewGuid().ToString() : input.TransactionId);
+                var error = NullBadRequest<GetUsersCollectionRequest>(transactionId: input.TransactionId.IsNullOrEmptyOrWhiteSpace() ? Guid.NewGuid().ToString() : input.TransactionId);
                 return error;
             }
 
@@ -43,7 +43,7 @@ namespace NativoPlusStudio.WebRequestHandlers
                     Message = "An error occurred while processing your request",
                     Code = ((int)HttpStatusCode.InternalServerError).ToString()
                 });
-                return BadRequest(new HttpStandardResponse<FirebaseUsersCollectionResponse>
+                return BadRequest(new HttpStandardResponse<GetUsersCollectionResponse>
                 {
                     Response = null,
                     Error = errors,

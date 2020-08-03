@@ -33,7 +33,7 @@ namespace NativoPlusStudio.FirebaseConnector
         {
                 FirebaseApp.Create(new AppOptions()
                 {
-                    Credential = GoogleCredential.GetApplicationDefault()
+                    Credential = await GoogleCredential.GetApplicationDefaultAsync()
                 });
           
 
@@ -42,9 +42,9 @@ namespace NativoPlusStudio.FirebaseConnector
             {
                 UserRecordArgs args = new UserRecordArgs()
                 {
-                    Email = model.Email,
-                    Password = model.Password,
-                    DisplayName = model.FullName,
+                    Email = model.email,
+                    Password = model.password,
+                    DisplayName = model.fullName,
                     EmailVerified = true
                 };
                 newUser = await FirebaseAuth.DefaultInstance.CreateUserAsync(args);
@@ -68,8 +68,23 @@ namespace NativoPlusStudio.FirebaseConnector
 
             try
             {
-
-                model.UserId = userAuth.Result;
+                var names = model.fullName.ToString().Split(' ');
+                if(names.Length >=2)
+                {
+                    model.firstName = names[0];
+                    model.lastName = names[1];
+                }
+                else if(names.Length == 1)
+                {
+                    model.firstName = names[0];
+                    model.lastName = " ";
+                }
+                else
+                {
+                    model.firstName = model.firstName;
+                }
+                model.displayName = model.firstName;
+                model.userId = userAuth.Result;
                 CollectionReference colRef = fireStoreDb.Collection("users");                
                 var value = await colRef.AddAsync(model);                
                 FirebaseApp.DefaultInstance.Delete();

@@ -3,7 +3,7 @@ using NativoPlusStudio.RequestResponsePattern;
 
 namespace NativoPlusStudio.DataTransferObjects.FirebaseSearchCollection
 {
-    public class SearchUsersCollectionRequest : HttpRequest, ISearchUsersCollectionRequest
+    public class GetUsersCollectionRequest : HttpRequest, IGetUsersCollectionRequest
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

@@ -33,6 +33,7 @@ namespace NativoPlusStudio.FirebaseApi
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseAzureAppConfiguration();
             SetUpSwagger(app);
 
             app

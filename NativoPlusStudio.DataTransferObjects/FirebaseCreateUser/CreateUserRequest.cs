@@ -9,44 +9,45 @@ namespace NativoPlusStudio.DataTransferObjects.FirebaseCreateUser
     public class CreateUserRequest : HttpRequest, ICreateUserRequest
     {
         [FirestoreProperty]
-        public string UserId { get; set; }
+        public string userId { get; set; }       
+        public string fullName { get; set; }
         [FirestoreProperty]
-        public string FullName { get; set; }
+        public string displayName { get; set; }
         [FirestoreProperty]
-        public string FirstName { get; set; }
+        public string firstName { get; set; }
         [FirestoreProperty]
-        public string LastName { get; set; }
+        public string lastName { get; set; }
         [FirestoreProperty]
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
         [FirestoreProperty]
-        public string Provider { get; set; }
+        public string provider { get; set; }
         [FirestoreProperty]
-        public bool IsSubcribed { get; set; }
+        public bool isSubcribed { get; set; }
         [FirestoreProperty]
-        public int WeeksOfPregnancy { get; set; }
+        public int weeksOfPregnancy { get; set; }
         [FirestoreProperty]
-        public string HasEnabledNotifications { get; set; }
+        public bool hasEnabledNotifications { get; set; }
         [FirestoreProperty]
-        public string JourneyName { get; set; }
+        public string journeyName { get; set; }
         [FirestoreProperty]
-        public string AppLanguage { get; set; }
+        public string appLanguage { get; set; }
         [FirestoreProperty]
-        public string StartingWeek { get; set; }
+        public int startingWeek { get; set; }
         [FirestoreProperty]
-        public DateTime? CreatedDate { get; set; } = DateTime.Now.Date;
+        public DateTime? createdDate { get; set; } = DateTime.Now.Date;
         [FirestoreProperty]
-        public DateTime? PregnancyDateModified { get; set; } = DateTime.Now.Date;
+        public DateTime? pregnancyDateModified { get; set; } = DateTime.Now.Date;
         [FirestoreProperty]
-        public bool IsExternalSubscriber { get; set; }
+        public bool isExternalSubscriber { get; set; }
         [FirestoreProperty]
-        public bool IsTrialSubscriber { get; set; }
+        public bool isTrialSubscriber { get; set; }
         [FirestoreProperty]
-        public DateTime? IsTrialSubExpirationDate { get; set; } = DateTime.Now.AddDays(7);
+        public DateTime? isTrialSubExpirationDate { get; set; } = DateTime.Now.AddDays(7);
         [FirestoreProperty]
-        public bool IsExternalUser { get; set; }
+        public bool isExternalUser { get; set; }
         [FirestoreProperty]
-        public bool IsOnboarded { get; set; }
+        public bool isOnboarded { get; set; }
 
     }
 

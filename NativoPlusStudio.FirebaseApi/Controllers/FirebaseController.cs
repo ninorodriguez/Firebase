@@ -49,7 +49,7 @@ namespace NativoPlusStudio.FirebaseApi.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(500)]
         [Route("GetFirebaseUsersCollection")]
-        public async Task<IActionResult> GetUserInfo([FromBody] SearchUsersCollectionRequest request) => await _mediator.Send(request);
+        public async Task<IActionResult> GetUserInfo([FromBody] GetUsersCollectionRequest request) => await _mediator.Send(request);
     }
 }
 

@@ -13,14 +13,14 @@ using System.Threading.Tasks;
 
 namespace NativoPlusStudio.FirebaseConnector
 {
-    public class SearchCollectionsService : ISearchCollectionsService
+    public class GetUsersCollectionService : IGetUsersCollectionService
     {
         private ILogger _logger;
         private readonly FirebaseOptions _config;
         string projectId;
         FirestoreDb fireStoreDb;
 
-        public SearchCollectionsService(ILogger logger,
+        public GetUsersCollectionService(ILogger logger,
             IOptions<FirebaseOptions> firebaseOptions)
         {
             _logger = logger;
@@ -34,40 +34,19 @@ namespace NativoPlusStudio.FirebaseConnector
         {
             FirebaseApp.Create(new AppOptions()
             {
-                Credential = GoogleCredential.GetApplicationDefault()
+                Credential = await GoogleCredential.GetApplicationDefaultAsync()
             });
         }      
 
-        public async Task<List<IFirebaseUsersCollectionResponse>> GetUsersInfo(ISearchUsersCollectionRequest model)
-        {            
-            var fieldPathSpecific = string.Empty;           
-            var valueSpecific = string.Empty;
-
-
-            // Google Firebase is very limited in their Queries. You can not make an OR Queries
-
-            if (model.FirstName != null && model.LastName == null && model.Email == null)
-            {                
-                fieldPathSpecific = "FirstName";
-                valueSpecific = model.FirstName;
-            }
-            else if(model.FirstName == null && model.LastName != null && model.Email == null)
-            {                
-                fieldPathSpecific = "LastName";
-                valueSpecific = model.LastName;
-            }
-           else if(model.FirstName == null && model.LastName == null && model.Email != null)
-            {                
-                fieldPathSpecific = "Email";
-                valueSpecific = model.Email;
-            }
+        public async Task<List<IGetUsersCollectionResponse>> GetUsersInfo(IGetUsersCollectionRequest model)
+        {  
 
             try
-            {               
-                CollectionReference userRef = fireStoreDb.Collection("users");         
-                Query query = userRef.WhereEqualTo(fieldPathSpecific, valueSpecific);                                           
-                QuerySnapshot querySnapshot = await query.GetSnapshotAsync();
-                List<IFirebaseUsersCollectionResponse> lstUsers = new List<IFirebaseUsersCollectionResponse>();
+            {
+                
+                var query = GetQuery(model);
+                QuerySnapshot querySnapshot = await query.Result.GetSnapshotAsync();
+                List<IGetUsersCollectionResponse> lstUsers = new List<IGetUsersCollectionResponse>();
                 
                 foreach (DocumentSnapshot documentSnapshot in querySnapshot.Documents)
                 {
@@ -81,7 +60,7 @@ namespace NativoPlusStudio.FirebaseConnector
                             MissingMemberHandling = MissingMemberHandling.Ignore,
                             DateParseHandling = DateParseHandling.None,
                         };
-                        var response = JsonConvert.DeserializeObject<FirebaseUsersCollectionResponse>(stringResponse, settings);
+                        var response = JsonConvert.DeserializeObject<GetUsersCollectionResponse>(stringResponse, settings);
                         lstUsers.Add(response);
                     }
                 }
@@ -92,8 +71,36 @@ namespace NativoPlusStudio.FirebaseConnector
             catch(Exception ex)
             {
                 _logger.Error($"#GetUserInfo: {ex.Message}");
-                return new List<IFirebaseUsersCollectionResponse>();
+                return new List<IGetUsersCollectionResponse>();
             }        
+        }
+
+
+        public async Task<Query> GetQuery(IGetUsersCollectionRequest model)
+        {           
+            var fieldPathSpecific = string.Empty;
+            var valueSpecific = string.Empty;
+
+            if (model.FirstName != null && model.LastName == null && model.Email == null)
+            {                
+                fieldPathSpecific = "FirstName";
+                valueSpecific = model.FirstName;
+            }
+            else if (model.FirstName == null && model.LastName != null && model.Email == null)
+            {                
+                fieldPathSpecific = "LastName";
+                valueSpecific = model.LastName;
+            }
+            else if (model.FirstName == null && model.LastName == null && model.Email != null)
+            {                
+                fieldPathSpecific = "Email";
+                valueSpecific = model.Email;
+            }          
+                         
+            CollectionReference userRef = fireStoreDb.Collection("users");
+            Query query = userRef.WhereEqualTo(fieldPathSpecific, valueSpecific);
+            
+            return query;
         }
     }
 }

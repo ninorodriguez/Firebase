@@ -4,25 +4,26 @@ namespace NativoPlusStudio.Interfaces.FirebaseCreateUser
 {
     public interface ICreateUserRequest
     {
-        string AppLanguage { get; set; }
-        DateTime? CreatedDate { get; set; }
-        string Email { get; set; }
-        string Password { get; set; }
-        string FirstName { get; set; }
-        string FullName { get; set; }
-        string HasEnabledNotifications { get; set; }
-        bool IsExternalSubscriber { get; set; }
-        bool IsExternalUser { get; set; }
-        bool IsOnboarded { get; set; }
-        bool IsSubcribed { get; set; }
-        DateTime? IsTrialSubExpirationDate { get; set; }
-        bool IsTrialSubscriber { get; set; }
-        string JourneyName { get; set; }
-        string LastName { get; set; }
-        DateTime? PregnancyDateModified { get; set; }
-        string Provider { get; set; }
-        string StartingWeek { get; set; }
-        string UserId { get; set; }
-        int WeeksOfPregnancy { get; set; }
+        string appLanguage { get; set; }
+        DateTime? createdDate { get; set; }
+        string email { get; set; }
+        string password { get; set; }
+        string displayName { get; set; }
+        string firstName { get; set; }
+        string fullName { get; set; }
+        bool hasEnabledNotifications { get; set; }
+        bool isExternalSubscriber { get; set; }
+        bool isExternalUser { get; set; }
+        bool isOnboarded { get; set; }
+        bool isSubcribed { get; set; }
+        DateTime? isTrialSubExpirationDate { get; set; }
+        bool isTrialSubscriber { get; set; }
+        string journeyName { get; set; }
+        string lastName { get; set; }
+        DateTime? pregnancyDateModified { get; set; }
+        string provider { get; set; }
+        int startingWeek { get; set; }
+        string userId { get; set; }
+        int weeksOfPregnancy { get; set; }
     }
 }
