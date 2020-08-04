@@ -1,4 +1,6 @@
-﻿using NativoPlusStudio.DataTransferObjects.FirebaseUploadFile;
+﻿using FluentValidation.Results;
+using NativoPlusStudio.DataTransferObjects.FirebaseUploadFile;
+using NativoPlusStudio.FluentValidation;
 using NativoPlusStudio.Interfaces.FirebaseUploadFile;
 using NativoPlusStudio.RequestResponsePattern;
 using Serilog;
@@ -25,35 +27,47 @@ namespace NativoPlusStudio.WebRequestHandlers
            CancellationToken cancellationToken = default)
         {
             _logger.Information(nameof(HandleAsync));
-
+            var transactionId = input.TransactionId.IsNullOrEmptyOrWhiteSpace() ? Guid.NewGuid().ToString() : input.TransactionId;
             if (input == null)
             {
-                _logger.Error("The request is null");
+                _logger.Error("#UploadFile The request is null");
                 var error = NullBadRequest<UploadRequest>(transactionId: input.TransactionId.IsNullOrEmptyOrWhiteSpace() ? Guid.NewGuid().ToString() : input.TransactionId);
                 return error;
             }
 
-            var response = await _uploadFileService.FileUpload(input);
-            var transactionId = input.TransactionId.IsNullOrEmptyOrWhiteSpace() ? Guid.NewGuid().ToString() : input.TransactionId;
-            if (response == null)
+            var validation = Validate(input);
+
+            if(validation.IsValid)
             {
-                var errors = new List<Error>();
-                errors.Add(new Error
+                var response = await _uploadFileService.FileUpload(input);
+                if (response == null)
                 {
-                    Message = "An error occurred while processing your request.",
-                    Code = ((int)HttpStatusCode.InternalServerError).ToString()
+                    var errors = new List<Error>();
+                    errors.Add(new Error
+                    {
+                        Message = "An error occurred while processing your request.",
+                        Code = ((int)HttpStatusCode.InternalServerError).ToString()
 
-                });
-                return BadRequest(new HttpStandardResponse<UploadResponse>
-                {
-                    Response = null,
-                    Error = errors,
-                    Status = false,
-                    TransactionId = transactionId
-                }, transactionId);
+                    });
+                    return BadRequest(new HttpStandardResponse<UploadResponse>
+                    {
+                        Response = null,
+                        Error = errors,
+                        Status = false,
+                        TransactionId = transactionId
+                    }, transactionId);
+                }
+                return Ok(response: (UploadResponse)response, input.TransactionId.IsNullOrEmptyOrWhiteSpace() ? Guid.NewGuid().ToString() : input.TransactionId);
             }
-            return Ok(response: (UploadResponse)response, input.TransactionId.IsNullOrEmptyOrWhiteSpace() ? Guid.NewGuid().ToString() : input.TransactionId);
+            return BadRequest<UploadRequest>(validation, transactionId);
+        }
+        private ValidationResult Validate(UploadRequest command)
+        {
+            _logger.Information("#Validate");
 
+            var validator = new UploadFileValidator();
+            ValidationResult result = validator.Validate(command);
+            return result;
         }
 
     }

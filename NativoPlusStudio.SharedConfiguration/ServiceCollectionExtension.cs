@@ -16,6 +16,8 @@ using NativoPlusStudio.Interfaces.FirebaseCreateUser;
 using NativoPlusStudio.DataTransferObjects.Configurations;
 using NativoPlusStudio.FirebaseConnector;
 using NativoPlusStudio.Interfaces.FirebaseSearchCollection;
+using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+using Microsoft.Extensions.Options;
 
 namespace NativoPlusStudio.SharedConfiguration
 {
@@ -62,7 +64,11 @@ namespace NativoPlusStudio.SharedConfiguration
             config = new ConfigurationBuilder()
                 .AddEnvironmentVariables()  
                 .AddUserSecrets<FirebaseOptions>()
-                .AddAzureAppConfiguration(config["AzureAppConfiguration:ConnectionString"])
+                .AddAzureAppConfiguration(options => {
+                    options.Connect(config["AzureAppConfiguration:ConnectionString"])
+                           .Select(KeyFilter.Any, LabelFilter.Null)
+                           .Select(KeyFilter.Any, config["ProgramOptions:Environment"]);
+                })
                 .SetBasePath(Directory.GetCurrentDirectory())                
                 .AddJsonFile($"{AppContext.BaseDirectory}/appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"{AppContext.BaseDirectory }/appsettings.Production.json",                
