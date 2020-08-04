@@ -1,6 +1,6 @@
 ﻿namespace NativoPlusStudio.Interfaces.FirebaseUploadFile
 {
-    public interface IUploadResponse
+    public interface IUploadFileResponse
     {
         bool Successful { get; set; }
         string Url { get; set; }

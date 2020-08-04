@@ -27,7 +27,7 @@ namespace NativoPlusStudio.FirebaseApi.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(500)]
         [Route("UploadFileToStorage")]
-        public async Task<IActionResult> UploadFile([FromForm] UploadRequest request) => await _mediator.Send(request);
+        public async Task<IActionResult> UploadFile([FromForm] UploadFileRequest request) => await _mediator.Send(request);
 
         /// <summary>
         /// Create Users on Firebase Database

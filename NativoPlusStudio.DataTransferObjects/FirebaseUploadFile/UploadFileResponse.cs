@@ -2,7 +2,7 @@
 
 namespace NativoPlusStudio.DataTransferObjects.FirebaseUploadFile
 {
-    public class UploadResponse : IUploadResponse
+    public class UploadFileResponse : IUploadFileResponse
     {
         public bool Successful { get; set; }
         public string Url { get; set; }

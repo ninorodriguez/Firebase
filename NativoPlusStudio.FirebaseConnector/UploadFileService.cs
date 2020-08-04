@@ -33,7 +33,7 @@ namespace NativoPlusStudio.FirebaseConnector
             return token.FirebaseToken;
         }        
 
-        public async Task<IUploadResponse> FileUpload(IUploadRequest model)
+        public async Task<IUploadFileResponse> FileUpload(IUploadFileRequest model)
         {
             _logger.Information($"#UploadFile started");          
             
@@ -84,7 +84,7 @@ namespace NativoPlusStudio.FirebaseConnector
                     var url = await upload;
                     if (url != null)
                     {
-                        return new UploadResponse()
+                        return new UploadFileResponse()
                         {
                             Successful = true,
                             Url = url
@@ -92,13 +92,13 @@ namespace NativoPlusStudio.FirebaseConnector
                     }
                 }
 
-                return new UploadResponse();
+                return new UploadFileResponse();
 
             }
             catch (Exception ex)
             {
                 _logger.Error($"#FileUpload error: {ex.Message}");
-                return new UploadResponse();
+                return new UploadFileResponse();
             }
         }        
     }

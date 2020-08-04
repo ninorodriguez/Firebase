@@ -5,7 +5,7 @@ using static NativoPlusStudio.Enums.Values;
 
 namespace NativoPlusStudio.DataTransferObjects.FirebaseUploadFile
 {
-    public class UploadRequest : HttpRequest, IUploadRequest
+    public class UploadFileRequest : HttpRequest, IUploadFileRequest
     {
         public Microsoft.AspNetCore.Http.IFormFile File { get; set; }  
         public FolderNames Folder { get; set; }

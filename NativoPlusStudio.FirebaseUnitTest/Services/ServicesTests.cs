@@ -49,7 +49,7 @@ namespace NativoPlusStudio.FirebaseUnitTest.Services
                     ContentType = "image/png"
                 };
 
-                var model = new UploadRequest()
+                var model = new UploadFileRequest()
                 {
                     File =file,
                     Folder = FolderNames.GbProfileImages
@@ -74,10 +74,10 @@ namespace NativoPlusStudio.FirebaseUnitTest.Services
                 provider = "email",
                 isSubcribed = true,
                 weeksOfPregnancy = 1,
-                hasEnabledNotifications = "",
-                journeyName = "",
-                appLanguage = "",
-                startingWeek = "",
+                hasEnabledNotifications = true,
+                journeyName = "Vaginal Birth",
+                appLanguage = "English",
+                startingWeek = 13,
                 createdDate = DateTime.UtcNow,
                 pregnancyDateModified = DateTime.UtcNow,
                 isExternalSubscriber = true,

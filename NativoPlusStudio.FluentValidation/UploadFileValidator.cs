@@ -3,7 +3,7 @@ using NativoPlusStudio.DataTransferObjects.FirebaseUploadFile;
 
 namespace NativoPlusStudio.FluentValidation
 {
-    public class UploadFileValidator : AbstractValidator<UploadRequest>
+    public class UploadFileValidator : AbstractValidator<UploadFileRequest>
     {
         public UploadFileValidator()
         {

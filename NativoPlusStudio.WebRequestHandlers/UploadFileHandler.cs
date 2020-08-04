@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace NativoPlusStudio.WebRequestHandlers
 {
-    public class UploadFileHandler : HttpHandler<UploadRequest>
+    public class UploadFileHandler : HttpHandler<UploadFileRequest>
     {
         private readonly IUploadFileService _uploadFileService;
 
@@ -23,7 +23,7 @@ namespace NativoPlusStudio.WebRequestHandlers
         }
 
         protected override async Task<HttpResponse> HandleAsync(
-           UploadRequest input,
+           UploadFileRequest input,
            CancellationToken cancellationToken = default)
         {
             _logger.Information(nameof(HandleAsync));
@@ -31,7 +31,7 @@ namespace NativoPlusStudio.WebRequestHandlers
             if (input == null)
             {
                 _logger.Error("#UploadFile The request is null");
-                var error = NullBadRequest<UploadRequest>(transactionId: input.TransactionId.IsNullOrEmptyOrWhiteSpace() ? Guid.NewGuid().ToString() : input.TransactionId);
+                var error = NullBadRequest<UploadFileRequest>(transactionId: input.TransactionId.IsNullOrEmptyOrWhiteSpace() ? Guid.NewGuid().ToString() : input.TransactionId);
                 return error;
             }
 
@@ -49,7 +49,7 @@ namespace NativoPlusStudio.WebRequestHandlers
                         Code = ((int)HttpStatusCode.InternalServerError).ToString()
 
                     });
-                    return BadRequest(new HttpStandardResponse<UploadResponse>
+                    return BadRequest(new HttpStandardResponse<UploadFileResponse>
                     {
                         Response = null,
                         Error = errors,
@@ -57,11 +57,11 @@ namespace NativoPlusStudio.WebRequestHandlers
                         TransactionId = transactionId
                     }, transactionId);
                 }
-                return Ok(response: (UploadResponse)response, input.TransactionId.IsNullOrEmptyOrWhiteSpace() ? Guid.NewGuid().ToString() : input.TransactionId);
+                return Ok(response: (UploadFileResponse)response, input.TransactionId.IsNullOrEmptyOrWhiteSpace() ? Guid.NewGuid().ToString() : input.TransactionId);
             }
-            return BadRequest<UploadRequest>(validation, transactionId);
+            return BadRequest<UploadFileRequest>(validation, transactionId);
         }
-        private ValidationResult Validate(UploadRequest command)
+        private ValidationResult Validate(UploadFileRequest command)
         {
             _logger.Information("#Validate");
 
