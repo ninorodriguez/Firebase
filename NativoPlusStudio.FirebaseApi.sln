@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativoPlusStudio.DataTransferObjects", "NativoPlusStudio.DataTransferObjects\NativoPlusStudio.DataTransferObjects.csproj", "{3ED04C67-DBC7-4757-A7C8-0B791E19D655}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativoPlusStudio.Interfaces", "NativoPlusStudio.Interfaces\NativoPlusStudio.Interfaces.csproj", "{762706BA-67D0-4B25-AB13-8C26A3BBAEB4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativoPlusStudio.SharedConfiguration", "NativoPlusStudio.SharedConfiguration\NativoPlusStudio.SharedConfiguration.csproj", "{1E2E3FD0-387B-4692-900A-E264AEAAC7C4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativoPlusStudio.WebRequestHandlers", "NativoPlusStudio.WebRequestHandlers\NativoPlusStudio.WebRequestHandlers.csproj", "{24B32A31-B042-4507-875B-D427B275E8DF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativoPlusStudio.FirebaseConnector", "NativoPlusStudio.FirebaseConnector\NativoPlusStudio.FirebaseConnector.csproj", "{B8DCD529-28C1-48A7-BC9D-504054EEDFAC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativoPlusStudio.Enums", "NativoPlusStudio.Enums\NativoPlusStudio.Enums.csproj", "{0FEA0674-0AA5-446E-B712-DE02E9665205}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativoPlusStudio.FirebaseApi", "NativoPlusStudio.FirebaseApi\NativoPlusStudio.FirebaseApi.csproj", "{F4A4677C-2A02-40A8-9C9C-5CCF1BFA6ED6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativoPlusStudio.FirebaseUnitTest", "NativoPlusStudio.FirebaseUnitTest\NativoPlusStudio.FirebaseUnitTest.csproj", "{4EFBAE81-4AA3-404B-A89B-DB4CFED0A3F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{7AE3A0CB-6680-4E96-8F94-089536E127F2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativoPlusStudio.FluentValidation", "NativoPlusStudio.FluentValidation\NativoPlusStudio.FluentValidation.csproj", "{434EAE15-2760-46C5-942D-0F85D51DC690}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3ED04C67-DBC7-4757-A7C8-0B791E19D655}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ED04C67-DBC7-4757-A7C8-0B791E19D655}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ED04C67-DBC7-4757-A7C8-0B791E19D655}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ED04C67-DBC7-4757-A7C8-0B791E19D655}.Release|Any CPU.Build.0 = Release|Any CPU
+		{762706BA-67D0-4B25-AB13-8C26A3BBAEB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{762706BA-67D0-4B25-AB13-8C26A3BBAEB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{762706BA-67D0-4B25-AB13-8C26A3BBAEB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{762706BA-67D0-4B25-AB13-8C26A3BBAEB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E2E3FD0-387B-4692-900A-E264AEAAC7C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E2E3FD0-387B-4692-900A-E264AEAAC7C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E2E3FD0-387B-4692-900A-E264AEAAC7C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E2E3FD0-387B-4692-900A-E264AEAAC7C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24B32A31-B042-4507-875B-D427B275E8DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24B32A31-B042-4507-875B-D427B275E8DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24B32A31-B042-4507-875B-D427B275E8DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24B32A31-B042-4507-875B-D427B275E8DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8DCD529-28C1-48A7-BC9D-504054EEDFAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8DCD529-28C1-48A7-BC9D-504054EEDFAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8DCD529-28C1-48A7-BC9D-504054EEDFAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8DCD529-28C1-48A7-BC9D-504054EEDFAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FEA0674-0AA5-446E-B712-DE02E9665205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FEA0674-0AA5-446E-B712-DE02E9665205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FEA0674-0AA5-446E-B712-DE02E9665205}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FEA0674-0AA5-446E-B712-DE02E9665205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4A4677C-2A02-40A8-9C9C-5CCF1BFA6ED6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4A4677C-2A02-40A8-9C9C-5CCF1BFA6ED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4A4677C-2A02-40A8-9C9C-5CCF1BFA6ED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4A4677C-2A02-40A8-9C9C-5CCF1BFA6ED6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EFBAE81-4AA3-404B-A89B-DB4CFED0A3F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EFBAE81-4AA3-404B-A89B-DB4CFED0A3F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EFBAE81-4AA3-404B-A89B-DB4CFED0A3F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EFBAE81-4AA3-404B-A89B-DB4CFED0A3F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{434EAE15-2760-46C5-942D-0F85D51DC690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{434EAE15-2760-46C5-942D-0F85D51DC690}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{434EAE15-2760-46C5-942D-0F85D51DC690}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{434EAE15-2760-46C5-942D-0F85D51DC690}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4EFBAE81-4AA3-404B-A89B-DB4CFED0A3F0} = {7AE3A0CB-6680-4E96-8F94-089536E127F2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E53B5FBB-3CE0-41F5-A5FD-8BB445CB4270}
+	EndGlobalSection
+EndGlobal

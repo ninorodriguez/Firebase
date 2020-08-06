@@ -1,0 +1,30 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:64704",
+      "sslPort": 44384
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "AZCE": "Endpoint=https://firebaseconfig.azconfig.io;Id=YSVU-l4-s0:c8+xBDu6VgkjLGE05IGT;Secret=gFiVvXbWyenoqxTu0HknHEEcwSUkLOPZXPfWFbQ7Xpo=",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "FirebaseUploadFile": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    }
+  }
+}
