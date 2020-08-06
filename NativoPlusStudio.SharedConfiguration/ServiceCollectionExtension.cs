@@ -17,7 +17,7 @@ using NativoPlusStudio.DataTransferObjects.Configurations;
 using NativoPlusStudio.FirebaseConnector;
 using NativoPlusStudio.Interfaces.FirebaseSearchCollection;
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
-using Microsoft.Extensions.Options;
+using NativoPlusStudio.Interfaces.FirebaseUpdateUser;
 
 namespace NativoPlusStudio.SharedConfiguration
 {
@@ -40,6 +40,7 @@ namespace NativoPlusStudio.SharedConfiguration
 
             services.AddScoped<IUploadFileService, UploadFileService>();
             services.AddScoped<ICreateUsersService, CreateUsersService>();
+            services.AddScoped<IUpdateUserService, UpdateUserService>();
             services.AddScoped<IFirebaseClient, FirebaseClient>();
             services.AddScoped<IFirebaseConfig, FirebaseConfig>();            
             services.AddScoped<IGetUsersCollectionService, GetUsersCollectionService>();            

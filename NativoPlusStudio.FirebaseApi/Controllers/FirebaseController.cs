@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NativoPlusStudio.DataTransferObjects.FirebaseCreateUser;
 using NativoPlusStudio.DataTransferObjects.FirebaseSearchCollection;
+using NativoPlusStudio.DataTransferObjects.FirebaseUpdateUser;
 using NativoPlusStudio.DataTransferObjects.FirebaseUploadFile;
 
 namespace NativoPlusStudio.FirebaseApi.Controllers
@@ -50,6 +51,20 @@ namespace NativoPlusStudio.FirebaseApi.Controllers
         [ProducesResponseType(500)]
         [Route("GetFirebaseUsersCollection")]
         public async Task<IActionResult> GetUserInfo([FromBody] GetUsersCollectionRequest request) => await _mediator.Send(request);
+
+        /// <summary>
+        /// Update User Information
+        /// </summary>
+        /// <param name="documentId"></param>
+        /// <param name="userObject"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(500)]
+        [Route("UpdateUser/{documentId}", Name = "UpdateUser")]
+        public async Task<IActionResult> UpdateUser(string documentId, [FromBody] UpdateUserRequest userObject) =>
+            await _mediator.Send(request: new UpdateUserModel { DocumentId = documentId, UserData = userObject });  
+        
     }
 }
 
