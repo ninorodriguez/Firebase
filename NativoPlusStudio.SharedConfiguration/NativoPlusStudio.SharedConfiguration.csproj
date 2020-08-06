@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFramework>netcoreapp3.0</TargetFramework>
-	  <UserSecretsId>1014a6de-c023-4cf1-bcff-8bf9f1634643</UserSecretsId>
+	  <TargetFramework>netcoreapp3.1</TargetFramework>	  
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+	  <PackageReference Include="Azure.Identity" Version="1.1.1" />
 	  <PackageReference Include="FirebaseAdmin" Version="1.14.0" />
 	  <PackageReference Include="FirebaseAuthentication.net" Version="3.4.0" />
 	  <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />

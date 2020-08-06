@@ -13,6 +13,7 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
+        "AZCE": "Endpoint=https://firebaseconfig.azconfig.io;Id=YSVU-l4-s0:c8+xBDu6VgkjLGE05IGT;Secret=gFiVvXbWyenoqxTu0HknHEEcwSUkLOPZXPfWFbQ7Xpo=",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },

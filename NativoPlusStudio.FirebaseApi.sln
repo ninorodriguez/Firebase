@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativoPlusStudio.FirebaseUn
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{7AE3A0CB-6680-4E96-8F94-089536E127F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativoPlusStudio.FluentValidation", "NativoPlusStudio.FluentValidation\NativoPlusStudio.FluentValidation.csproj", "{434EAE15-2760-46C5-942D-0F85D51DC690}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativoPlusStudio.FluentValidation", "NativoPlusStudio.FluentValidation\NativoPlusStudio.FluentValidation.csproj", "{434EAE15-2760-46C5-942D-0F85D51DC690}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
