@@ -1,27 +1,44 @@
-#Firebase
+# Firebase
+Our Firebase API is an APS.NET Core 3.1 Web Application, that allows you to upload a file to firebase storage, create an authenticated user and store the user information in firebase cloud storage, update the user information and get the user information.
 
-FirebaseApi is an ASP.NET project that makes possible the interaction
-with Firebase Storage and Database- CloudStorage
+## How to configured it?
+Our project has two methodologies for the configurations.
 
-##Configurations
+### Azure app configuration
+You can use this methodology creating in AzurePortal an app configuration and storing the followings configurations by environments:
 
-Before executes the APIs you need to configure your Firebase settings
-in the appsetting.Production.json file. You need the following settings:
-- ApiKey = Firebase ApiKey
-- ProjectId = Firebase ProjectId
-- Bucket = Firebase Storage Bucket
-- Email = an email that exists in Firebase Authentication Users
-- Password = a password for the previous email
+Key | Value  | Label
+----| -----  | -----
+FirebaseOptions:ApiKey | your ApiKey | Development
+FirebaseOptions:Bucket | your Bucket | Development
+FirebaseOptions:Email  | your Email  | Development
+FirebaseOptions:Password | your Password | Development
+FirebaseOptions:ProjectId | your ProjectId | Development
 
-Also, you need to configure the GOOGLE_APPLICATION_CREDENTIALS environment
-with the path of the Firebase Auth .json file that you can generate in
-Project settings - Service accounts and Generate a new private key
+One time you have the Azure app configuration you need to set-up in your project Environment variables the following:
 
-##NugetPackages
-- FirebaseAdmin
-- FirebaseAuthentication.net
-- FirebaseStorage.net
-- Google.Cloud.Firestore
+- ASPNETCORE_ENVIRONMENT = Development
+- AZCE = your Azure app configuration connection string
+
+### appsettings.json
+The second methology is creating an appsettings.environment.json file and adding the following:
+
+```
+"FirebaseOptions": {
+  "ApiKey": "your ApiKey",
+  "ProjectId": "your ProjectId",
+  "Bucket": "your Bucket",
+  "Email": "your Email",
+  "Password": "your Password"
+}
+```
+
+Another configuration that you need to add is GOOGLE_APPLICATION_CREDENTIALS.
+
+For the GOOGLE_APPLICATION_CREDENTIALS configuration follow this link: https://firebase.google.com/docs/admin/setup#windows
+
+
+
 
 
 
