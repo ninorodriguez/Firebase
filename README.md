@@ -1,5 +1,4 @@
 # Firebase
-
 Our Firebase API is an APS.NET Core 3.1 Web Application, that allows you to upload a file to firebase storage, create an authenticated user and store the user information in firebase cloud storage, update the user information and get the user information.
 
 ## How to configured it?
@@ -36,7 +35,7 @@ The second methology is creating an appsettings.environment.json file and adding
 
 Another configuration that you need to add is GOOGLE_APPLICATION_CREDENTIALS.
 
-For this configuration follow this link: https://firebase.google.com/docs/admin/setup#windows
+For the GOOGLE_APPLICATION_CREDENTIALS configuration follow this link: https://firebase.google.com/docs/admin/setup#windows
 
 
 
