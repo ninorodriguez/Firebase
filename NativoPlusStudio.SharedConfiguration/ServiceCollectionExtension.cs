@@ -81,7 +81,7 @@ namespace NativoPlusStudio.SharedConfiguration
                 })
                 .SetBasePath(Directory.GetCurrentDirectory())                
                 .AddJsonFile($"{AppContext.BaseDirectory}/appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile($"{AppContext.BaseDirectory}/firebaseAuth.json", optional: true, reloadOnChange: true)
+                .AddJsonFile("firebaseAuth.json")
                 .AddJsonFile($"{AppContext.BaseDirectory }/appsettings.Production.json",                
                             optional: false, reloadOnChange: true)
                             .Build();
