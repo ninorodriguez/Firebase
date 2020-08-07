@@ -83,17 +83,17 @@ namespace NativoPlusStudio.FirebaseConnector
 
             if (model.FirstName != null && model.LastName == null && model.Email == null)
             {                
-                fieldPathSpecific = "FirstName";
+                fieldPathSpecific = "firstName";
                 valueSpecific = model.FirstName;
             }
             else if (model.FirstName == null && model.LastName != null && model.Email == null)
             {                
-                fieldPathSpecific = "LastName";
+                fieldPathSpecific = "lastName";
                 valueSpecific = model.LastName;
             }
             else if (model.FirstName == null && model.LastName == null && model.Email != null)
             {                
-                fieldPathSpecific = "Email";
+                fieldPathSpecific = "email";
                 valueSpecific = model.Email;
             }          
                          
