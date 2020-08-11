@@ -62,7 +62,7 @@ To generate a private key file for your service account:
 
 One time you have the JSON file, you can copy and paste those values in **firebase.Auth.json file**.
 
-### GOOGLE_APPLICATION_CREDENTIALS congiguration
+### GOOGLE_APPLICATION_CREDENTIALS configuration
 - To configure the GOOGLE_APPLICATION_CREDENTIALS you can use the following link: https://firebase.google.com/docs/admin/setup#windows
 - An easy way to configure the GOOGLE_APPLICATION_CREDENTIALS is:
 1. Control Panel > System and Security > System 
