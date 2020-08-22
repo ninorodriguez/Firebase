@@ -66,7 +66,6 @@ namespace NativoPlusStudio.SharedConfiguration
             var aspnetcoreEnvironment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             checkConnectionStringRequirement(connectionString);
             checkAspNetCoreEnviromentVariableRequirement(aspnetcoreEnvironment);
-
             config = new ConfigurationBuilder()
                 .AddEnvironmentVariables()                 
                 .AddAzureAppConfiguration(options =>
@@ -81,7 +80,7 @@ namespace NativoPlusStudio.SharedConfiguration
                              .Select(KeyFilter.Any, aspnetcoreEnvironment);
                 })
                 .SetBasePath(Directory.GetCurrentDirectory())                
-                .AddJsonFile($"{AppContext.BaseDirectory}/appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"{AppContext.BaseDirectory}/appsettings.json", optional: false, reloadOnChange: true)                
                 .AddJsonFile($"{AppContext.BaseDirectory }/appsettings.Production.json",                
                             optional: false, reloadOnChange: true)
                             .Build();
@@ -114,5 +113,11 @@ namespace NativoPlusStudio.SharedConfiguration
             return loggerConfig;
 
         }
+
+        public static void ConfigureFirebaseServices(this IServiceCollection services, Action<FirebaseOptions> action)
+        {
+            services.Configure(action);
+        }
+        
     }
 }
