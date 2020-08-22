@@ -36,7 +36,7 @@ namespace NativoPlusStudio.FirebaseApi.Controllers
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [ProducesResponseType(200)]
+        [ProducesResponseType(201)]
         [ProducesResponseType(500)]
         [Route("CreateUserToCloudFireStore")]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request) => await _mediator.Send(request);

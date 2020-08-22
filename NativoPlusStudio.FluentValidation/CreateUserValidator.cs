@@ -8,7 +8,7 @@ namespace NativoPlusStudio.FluentValidation
         public CreateUserValidator()
         {
             RuleFor(x => x.fullName).NotEmpty();            
-            RuleFor(x => x.email).EmailAddress();
+            RuleFor(x => x.email).NotEmpty().EmailAddress();
             RuleFor(x => x.password).NotEmpty();
             RuleFor(x => x.provider).NotEmpty();
             RuleFor(x => x.isSubcribed).NotEmpty();
